@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "MM Sales Assistant",
+    "description": "Detects if the page is an e-commerce site and highlights the products.",
+    "version": "1.0",
+    "icons": {
+      "48": "images/icon.png"
+    },
+    "action": {
+        "default_popup": "popup/index.html"
+    },
+    "content_scripts":[{
+      "js": ["assets/content.js"],
+      "matches": ["https://*/*"]
+    }],
+    "background":{
+      "service_worker": "assets/background.js",
+      "type": "module"
+    },
+    "web_accessible_resources": [{
+      "matches": ["https://*/*"],
+      "resources": ["assets/*"]
+   }],
+   "host_permissions": ["https://*/*"],
+    "permissions": [
+      "tabs", 
+      "scripting"
+    ]
+  }
