@@ -7,12 +7,12 @@ const Container = styled.div`
   justify-content: center;
   padding: 1rem;
   width: 200px;
-  background-color: #3c3c3c;
+  background-color: var(--container-bg-color);
 `;
 
 const Button = styled.button<{ disabled?: boolean }>`
-  background-color: #a8c7fa;
-  color: #072e6f;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 100px;
@@ -25,11 +25,11 @@ const Button = styled.button<{ disabled?: boolean }>`
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 
   &:hover {
-    background-color: #a1bded;
+    background-color: var(--button-hover-bg-color);
   }
 
   &:active {
-    background-color: #91b1e8;
+    background-color: var(--button-active-bg-color);
   }
 `;
 

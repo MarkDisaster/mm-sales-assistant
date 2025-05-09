@@ -1,5 +1,4 @@
-import { createRoot } from "react-dom/client";
-import { Tooltip } from "./tooltip";
+import { useDetectedProducts } from "../hooks/useDetectedProducts";
 
 chrome.runtime.onConnect.addListener((port) => {
   if (port.name === "popup") {
@@ -8,40 +7,8 @@ chrome.runtime.onConnect.addListener((port) => {
         chrome.runtime.sendMessage(
           { type: "analyzePage", dom: document.documentElement.outerHTML },
           (response) => {
-            console.log("response", response);
             if (response.success) {
-              console.log("response", response.data);
-              const array = response.data
-                .split(", ")
-                .map((item: string) => item.trim());
-              const selector = array.map((cls: string) => `.${cls}`).join(", ");
-              const items = document.querySelectorAll(selector);
-
-              items.forEach((item) => {
-                const el = item as HTMLElement;
-                el.style.position = "relative";
-                el.style.backgroundColor = "#a8c7fa";
-                el.style.background = "#a8c7fa";
-
-                item.addEventListener("mouseenter", () => {
-                  const rect = item.getBoundingClientRect();
-                  const tooltipContainer = document.createElement("div");
-                  document.body.appendChild(tooltipContainer);
-
-                  const root = createRoot(tooltipContainer);
-                  root.render(
-                    <Tooltip
-                      text="Detekovaný produkt"
-                      top={rect.top + window.scrollY - 30}
-                      left={rect.left + window.scrollX}
-                    />
-                  );
-
-                  item.addEventListener("mouseleave", () => {
-                    root.unmount();
-                  });
-                });
-              });
+              useDetectedProducts(response.data);
 
               port.postMessage({ type: "analysisComplete" });
             } else {

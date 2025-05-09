@@ -7,16 +7,15 @@ type Props = {
   left: number;
 };
 
-// Definování styled komponenty pro Tooltip
 const TooltipContainer = styled.div<{ top: number; left: number }>`
   position: absolute;
   margin-bottom: 8px;
   padding: 4px 8px;
   font-size: 12px;
   color: white;
-  background-color: black;
+  background-color: var(--container-black-color);
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px var(--container-black-color);
   white-space: nowrap;
   z-index: 9999;
   top: ${({ top }) => `${top}px`};
