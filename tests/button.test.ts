@@ -34,5 +34,8 @@ test('Extension popup contains button', async () => {
   await expect(button).toBeVisible();
   await expect(button).toHaveText(/Analyzovat stránku/i);
 
+  await button.click();
+  await expect(button).toHaveText(/Analyzuji.../i);
+
   await context.close();
 });

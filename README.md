@@ -51,3 +51,11 @@ To add the build to a Chrome Extension:
 4. Your extension should now be installed and active in Chrome.
 
 > **Note:** Make sure the `dist/` folder contains all the necessary files for a Chrome Extension (e.g., `manifest.json`, background scripts, popup HTML, etc.).
+
+## Testing
+
+To run end-to-end tests using [Playwright](https://playwright.dev):
+
+```bash
+pnpm run test
+```
