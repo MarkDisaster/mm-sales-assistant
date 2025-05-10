@@ -8,19 +8,23 @@
     "build": "tsc && vite build --config vite.config.ts && vite build --config vite-content.config.ts && vite build --config vite-background.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "playwright test"
   },
   "dependencies": {
     "@google/genai": "^0.13.0",
+    "@types/node": "^22.15.17",
     "@types/styled-components": "^5.1.34",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
     "@types/chrome": "^0.0.263",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
+    "@types/semver": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",
