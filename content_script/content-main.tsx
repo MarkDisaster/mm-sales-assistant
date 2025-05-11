@@ -25,6 +25,10 @@ const handleDetectedProducts = (data: string) => {
           left={rect.left + window.scrollX}
         />
       );
+
+      item.addEventListener("mouseleave", () => {
+        root.unmount();
+      });
     });
   });
 };
