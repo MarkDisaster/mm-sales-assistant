@@ -13,9 +13,9 @@ const TooltipContainer = styled.div<{ top: number; left: number }>`
   padding: 4px 8px;
   font-size: 12px;
   color: white;
-  background-color: var(--container-black-color);
+  background-color: #000000;
   border-radius: 4px;
-  box-shadow: 0 2px 8px var(--container-black-color);
+  box-shadow: 0 2px 8px #000000;
   white-space: nowrap;
   z-index: 9999;
   top: ${({ top }) => `${top}px`};
